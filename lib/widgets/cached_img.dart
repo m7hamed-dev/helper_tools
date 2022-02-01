@@ -7,10 +7,13 @@ class CachedImg extends StatelessWidget {
     required this.imageUrl,
     this.width,
     this.height,
+    this.shape,
   }) : super(key: key);
+  //
   final String imageUrl;
   final double? width;
   final double? height;
+  final BoxShape? shape;
   //
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class CachedImg extends StatelessWidget {
       height: height ?? 40.0,
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
+          shape: shape ?? BoxShape.rectangle,
           image: DecorationImage(
             image: imageProvider,
             fit: BoxFit.cover,

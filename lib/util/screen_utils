@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+// const double fontSizeAppBar = 16.0;
+
+class ScreenUtil {
+  static double getWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width;
+
+  static double getHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
+
+  static double setSize(BuildContext context, double size) {
+    if (getWidth(context) > 800) {
+      return size + 10.0;
+    }
+    return size;
+  }
+
+  static DeviceTypes getTypeDevice(BuildContext context) {
+    if (MediaQuery.of(context).size.height > 800) {
+      // print('**************** typeDevice = (tab) \n ****************');
+      return DeviceTypes.tab;
+    }
+    // print('typeDevice = (mobile) \n ****************');
+    return DeviceTypes.mobile;
+  }
+
+  static Text txt(BuildContext context, dynamic data,
+      {Color? color, required double fontSize, FontWeight? fontWeight}) {
+    return Text(
+      data == null ? '' : data.toString(),
+      style: TextStyle(
+        fontSize: setSize(context, fontSize),
+        color: color ?? Colors.black,
+        fontFamily: 'pfd',
+      ),
+    );
+  }
+
+  static Icon icon(BuildContext context, IconData icon) {
+    return Icon(icon,
+        size: getTypeDevice(context) == DeviceTypes.mobile ? 17.0 : 20.0);
+  }
+
+  // static double height(BuildContext context, String pagesName) {
+  //   switch (pagesName) {
+  //     case 'nearComapny':
+  //       return getHeight(context) * 0.12;
+
+  //     default:
+  //       return getHeight(context) * 0.12;
+  //   }
+  // }
+}
+
+enum DeviceTypes { mobile, tab }

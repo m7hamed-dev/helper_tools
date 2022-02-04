@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:mowad_baitk/style/txt_style.dart';
-import 'package:mowad_baitk/tools/responsive_widget.dart';
+
 
 class InputWidget extends StatelessWidget {
   //
@@ -76,9 +74,7 @@ class InputWidget extends StatelessWidget {
       // textDirection: TextDirection.rtl,
       buildCounter: (BuildContext context,
           {int? currentLength, int? maxLength, bool? isFocused}) {
-        return isShowBuildCounter == true
-            ? myTinyString(currentLength.toString())
-            : null;
+        return null;
       },
       // buildCounter: (BuildContext context,
       //         {int currentLength, int maxLength, bool isFocused}) =>
@@ -87,17 +83,17 @@ class InputWidget extends StatelessWidget {
       validator: validator,
       // validator: validator ?? ValidatorClass.generalValidation,
       onChanged: onChange,
-      style: txtStyle(context),
+      // style: txtStyle(context),
       onTap: onTap ?? null,
       autocorrect: false,
       decoration: InputDecoration(
         prefixText: prefixText ?? '',
         // suffixText: 'suffixText',
-        prefixStyle: txtStyle(context),
+        // prefixStyle: txtStyle(context),
         hintText: hint, //0900000088 5837
-        hintStyle: hinStyle(context),
+        // hintStyle: hinStyle(context),
         // error
-        errorStyle: errorStyle(context),
+        // errorStyle: errorStyle(context),
         focusedErrorBorder: OutlineInputBorder(
           // gapPadding: 40,
           borderRadius: BorderRadius.circular(10.0),
@@ -108,7 +104,7 @@ class InputWidget extends StatelessWidget {
         ),
 
         contentPadding: contentPadding,
-        fillColor: HexColor('##fef1f4'),
+        // fillColor: HexColor('##fef1f4'),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
@@ -121,7 +117,7 @@ class InputWidget extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
-            color: HexColor('#f8f8f8'),
+            // color: HexColor('#f8f8f8'),
             width: 2.0,
           ),
         ),
@@ -129,23 +125,23 @@ class InputWidget extends StatelessWidget {
     );
   }
 
-  TextStyle txtStyle(context) {
-    return TextStyle(
-      fontSize: ScreenUtil.setSize(context, 18.0),
-    );
-  }
+  // TextStyle txtStyle(context) {
+  //   return TextStyle(
+  //     fontSize: ScreenUtil.setSize(context, 18.0),
+  //   );
+  // }
 
-  TextStyle hinStyle(context) {
-    return TextStyle(
-      fontSize: ScreenUtil.setSize(context, 18.0),
-      color: Colors.grey,
-    );
-  }
+  // TextStyle hinStyle(context) {
+  //   return TextStyle(
+  //     fontSize: ScreenUtil.setSize(context, 18.0),
+  //     color: Colors.grey,
+  //   );
+  // }
 
-  TextStyle errorStyle(context) {
-    return TextStyle(
-      fontSize: ScreenUtil.setSize(context, 15.0),
-      color: Colors.red,
-    );
-  }
+  // TextStyle errorStyle(context) {
+  //   return TextStyle(
+  //     fontSize: ScreenUtil.setSize(context, 15.0),
+  //     color: Colors.red,
+  //   );
+  // }
 }
